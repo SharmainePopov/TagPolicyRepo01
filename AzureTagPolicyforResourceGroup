@@ -1,0 +1,137 @@
+{
+  "mode": "All",
+  "policyRule": {
+    "if": {
+      "allOf": [
+        {
+          "exists": "false",
+          "field": "[concat('tags[', parameters('tagName1'), ']')]"
+        },
+        {
+          "field": "type",
+          "equals": "Microsoft.Resources/subscriptions/resourceGroups"
+        }
+      ]
+    },
+    "then": {
+      "effect": "append",
+      "details": [
+        {
+          "field": "[concat('tags[', parameters('tagName1'), ']')]",
+          "value": "[parameters('tagValue1')]"
+        },
+        {
+          "field": "[concat('tags[', parameters('tagName2'), ']')]",
+          "value": "[parameters('tagValue2')]"
+        },
+        {
+          "field": "[concat('tags[', parameters('tagName3'), ']')]",
+          "value": "[parameters('tagValue3')]"
+        },
+        {
+          "field": "[concat('tags[', parameters('tagName4'), ']')]",
+          "value": "[parameters('tagValue4')]"
+        },
+        {
+          "field": "[concat('tags[', parameters('tagName5'), ']')]",
+          "value": "[parameters('tagValue5')]"
+        }
+      ]
+    }
+  },
+  "parameters": {
+    "tagName1": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Tag Name1",
+        "description": "Owner"
+      },
+      "defaultValue": "Owner"
+    },
+    "tagValue1": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Tag Value1",
+        "description": "Person responsible for this resource"
+      },
+      "defaultValue": "username@catapultsystems.com"
+    },
+    "tagName2": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Tag Name2",
+        "description": "EstimatedMonthlyCost"
+      },
+      "defaultValue": "EstimatedMonthlyCost"
+    },
+    "tagValue2": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Tag Value2",
+        "description": "Estimated Monthly Cost of the resources inside Resource Group"
+      },
+      "defaultValue": "$000.0"
+    },
+    "tagName3": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Tag Name3",
+        "description": "ReviewDate"
+      },
+      "defaultValue": "ReviewDate"
+    },
+    "tagValue3": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Tag Value3",
+        "description": "Expected Review Date for the resource"
+      },
+      "defaultValue": "mm/dd/yyyy"
+    },
+    "tagName4": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Tag Name4",
+        "description": "BusinessUnit"
+      },
+      "defaultValue": "BusinessUnit"
+    },
+    "tagValue4": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Tag Value4",
+        "description": "BusinessUnit to which resource group belong to"
+      },
+      "allowedValues": [
+        "Practices",
+        "Delivery",
+        "Corp",
+        "IT"
+      ],
+      "defaultValue": "IT"
+    },
+    "tagName5": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Tag Name5",
+        "description": "Purpose of the resource group"
+      },
+      "defaultValue": "Purpose"
+    },
+    "tagValue5": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Tag Value5",
+        "description": "Purpose of the resource group"
+      },
+      "allowedValues": [
+        "Production",
+        "Demo",
+        "ClientProject",
+        "Development/Sandbox",
+        "Training/Learning"
+      ],
+      "defaultValue": "Demo"
+    }
+  }
+}
