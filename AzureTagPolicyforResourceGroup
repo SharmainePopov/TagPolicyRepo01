@@ -54,7 +54,7 @@
         "displayName": "Tag Value1",
         "description": "Person responsible for this resource"
       },
-      "defaultValue": "username@catapultsystems.com"
+      "defaultValue": "username@turtledesk.com"
     },
     "tagName2": {
       "type": "String",
